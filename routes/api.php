@@ -14,6 +14,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+
+Route::get('/posts', function () {
+    return response()->json([
+        'posts' => [
+            [
+                'title' => 'PostOne'
+            ]
+        ]
+    ]);
+    // created an API to return JSOn response
+    // http://laragigs.test/api/posts
+});
+
+*/
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
