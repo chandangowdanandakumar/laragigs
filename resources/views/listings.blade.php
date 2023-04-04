@@ -10,7 +10,8 @@ this is the php code, which can be cleaned up using the blade template
 we can use directives 
 
  --}}
-
+ @extends('layout')
+ @section('content')
 
  <h1>{{$heading}}</h1>
 
@@ -38,3 +39,4 @@ we can use directives
 <p> unless directive - No listings found </p>
 
 @endunless
+@endsection
