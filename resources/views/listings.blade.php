@@ -35,7 +35,7 @@ we can use directives
     <img src={{$listing->image}} class="card-img-top" alt="...">
     <div class="card-body">
         <a class="card-title" href="/listings/{{$listing['id']}}">{{$listing->title}}</a>
-        <p>{{ $listing->tags}}</p>
+        <x-listings-tags :tagsCsv='$listing->tags' />
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">{{ $listing->company}}</li>

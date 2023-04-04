@@ -20,18 +20,24 @@ use PhpParser\Node\Expr\List_;
 
 //all Listing can be fetched by crating a model for all 
 Route::get('/', function () {
-    return view('listings',[
-    'heading' => 'Latest Listings',
-    'listings' => Listing::all()
+    return view('listings', [
+        'heading' => 'Latest Listings',
+        'listings' => Listing::all()
     ]);
 });
 
 
 //single listing
-Route::get('/listings/{id}', function($id){
-    return view('listing',[
-        'listing' => Listing::find($id)
-    ]);
+Route::get('/listings/{id}', function ($id) {
+    $listing = Listing::find($id);
+    if ($listing) {
+
+        return view('listing', [
+            'listing' => Listing::find($id)
+        ]);
+    } else {
+        abort('404');
+    }
 });
 
 /*
