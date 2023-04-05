@@ -10,13 +10,10 @@ this is the php code, which can be cleaned up using the blade template
 we can use directives 
 
  --}}
- @extends('layout')
- @section('content')
+<x-layout>
 
  @include('partials._hero')
  @include('partials._search')
-
- <h1>{{$heading}}</h1>
 
 
  @if(count($listings)==0)
@@ -57,4 +54,5 @@ we can use directives
 <p> unless directive - No listings found </p>
 
 @endunless
-@endsection
+</x-layout>
+

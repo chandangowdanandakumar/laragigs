@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ListingController;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -19,26 +20,26 @@ use PhpParser\Node\Expr\List_;
 
 
 //all Listing can be fetched by crating a model for all 
-Route::get('/', function () {
-    return view('listings', [
-        'heading' => 'Latest Listings',
-        'listings' => Listing::all()
-    ]);
-});
+// Route::get('/', function () {
+//     return view('listings', [
+//         'heading' => 'Latest Listings',
+//         'listings' => Listing::all()
+//     ]);
+// });
 
 
 //single listing
-Route::get('/listings/{id}', function ($id) {
-    $listing = Listing::find($id);
-    if ($listing) {
+// Route::get('/listings/{id}', function ($id) {
+//     $listing = Listing::find($id);
+//     if ($listing) {
 
-        return view('listing', [
-            'listing' => Listing::find($id)
-        ]);
-    } else {
-        abort('404');
-    }
-});
+//         return view('listing', [
+//             'listing' => Listing::find($id)
+//         ]);
+//     } else {
+//         abort('404');
+//     }
+// });
 
 /*
 
@@ -63,3 +64,38 @@ Route::get('/search', function (Request $request) {
 });
 
 */
+
+
+
+// Changing to controllers and configuring router to import controller class
+
+
+// Common Resource Routes:
+// index Show all listings
+// show - Show single listing
+// create Show form to create new listing
+// store - Store new listing I
+// edit - Show form to edit listing
+// update Update listing
+// destroy - Delete listing
+
+// all listings
+Route::get('/',[ListingController::class,'index']);
+
+//single listing 
+// Route::get('/listings/{$id}',[ListingController::class, 'show']); 
+
+
+
+//single listing
+Route::get('/listings/{id}', function ($id) {
+    $listing = Listing::find($id);
+    if ($listing) {
+
+        return view('listing.show', [
+            'listing' => Listing::find($id)
+        ]);
+    } else {
+        abort('404');
+    }
+});

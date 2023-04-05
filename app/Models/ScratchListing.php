@@ -20,10 +20,11 @@ class Listing
         ];
     }
 
-    public static function find($id){
+    public static function find($listing){
+        ddd();
         $listings = self::all();
         foreach($listings as $listing){
-            if($listing['id']== $id){
+            if($listing['listing']== $listing){
                 return $listing;
             }
         }

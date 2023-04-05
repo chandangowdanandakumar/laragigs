@@ -1,5 +1,4 @@
-@extends('layout')
-@section('content')
+<x-layout>
 @include('partials._search')
 <a href="/">back</a>
 <div class="card" style="width: 18rem; margin: 30px;">
@@ -7,7 +6,6 @@
     <div class="card-body">
         <a class="card-title" href="/listings/{{$listing['id']}}">{{$listing->title}}</a>
         <x-listings-tags :tagsCsv='$listing->tags' />
-        {{-- <p>{{ $listing->tags}}</p> --}}
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">{{ $listing->company}}</li>
@@ -22,5 +20,4 @@
     </div>
   </div>
 
-
-@endsection
+</x-layout>
