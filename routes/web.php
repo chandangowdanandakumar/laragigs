@@ -92,7 +92,7 @@ Route::get('/listings/{id}', function ($id) {
     $listing = Listing::find($id);
     if ($listing) {
 
-        return view('listing.show', [
+        return view('listings.show', [
             'listing' => Listing::find($id)
         ]);
     } else {
